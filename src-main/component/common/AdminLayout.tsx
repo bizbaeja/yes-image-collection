@@ -1,8 +1,7 @@
-import React from 'react';
-import Header from './Header';
-import Sidebar from './SideBar';
-import Footer from './Footer';
-
+import React from "react";
+import Header from "./Header";
+import Sidebar from "./SideBar";
+import Footer from "./Footer";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -13,9 +12,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => (
     <Header />
     <div className="flex flex-1">
       <Sidebar />
-      <main className="flex-grow p-4">
-        {children}
-      </main>
+      <main className="flex-grow p-4 bg-gray-100">{children}</main>
     </div>
     <Footer />
   </div>

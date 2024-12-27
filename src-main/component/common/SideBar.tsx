@@ -1,124 +1,76 @@
 import React, { useState } from "react";
-import { useLocation, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-function Sidebar() {
-  const location = useLocation();
+// 메뉴 데이터 정의
+const menuData = [
+  {
+    title: "관리자 쇼핑몰 관리",
+    key: "mall",
+    items: [{ name: "환경설정", path: "/mall-settings/environment" }],
+  },
+  {
+    title: "관리자 admin 관리",
+    key: "admin",
+    items: [
+      { name: "부관리자 등록", path: "/admin/register" },
+      { name: "부관리자 권한관리", path: "/admin/permissions" },
+      { name: "로그삭제 비밀번호 설정", path: "/admin/password" },
+      { name: "회원그룹삭제 비밀번호 설정", path: "/admin/group" },
+    ],
+  },
+  {
+    title: "사용자 관리",
+    key: "user",
+    items: [
+      { name: "사용자 목록", path: "/user-management/list" },
+      { name: "권한 관리", path: "/user-management/roles" },
+    ],
+  },
+  {
+    title: "설정",
+    key: "settings",
+    items: [
+      { name: "일반 설정", path: "/settings/general" },
+      { name: "고급 설정", path: "/settings/advanced" },
+    ],
+  },
+];
+
+const Sidebar: React.FC = () => {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
-  const toggleDropdown = (menu: string) => {
-    setOpenDropdown(openDropdown === menu ? null : menu);
+  const toggleDropdown = (key: string) => {
+    setOpenDropdown(openDropdown === key ? null : key);
   };
-
-  // 관리자 쇼핑몰 관리 메뉴 렌더링
-  const renderMallManagementMenu = () => (
-    <ul className="space-y-2">
-      <li>
-        <button
-          className="w-full px-4 py-2 hover:bg-orange-600 transition-colors duration-300 text-left flex justify-between"
-          onClick={() => toggleDropdown("mall")}
-        >
-          관리자 쇼핑몰 관리
-          <span>{openDropdown === "mall" ? "▲" : "▼"}</span>
-        </button>
-        {openDropdown === "mall" && (
-          <ul className="pl-6">
-            <li className="hover:bg-orange-500">
-              <Link to="/mall-settings/environment">환경설정</Link>
-            </li>
-          </ul>
-        )}
-      </li>
-    </ul>
-  );
-
-  // 관리자 admin 관리 메뉴 렌더링
-  const renderAdminManagementMenu = () => (
-    <ul className="space-y-2">
-      <li>
-        <button
-          className="w-full px-4 py-2 hover:bg-orange-600 transition-colors duration-300 text-left flex justify-between"
-          onClick={() => toggleDropdown("admin")}
-        >
-          관리자 admin 관리
-          <span>{openDropdown === "admin" ? "▲" : "▼"}</span>
-        </button>
-        {openDropdown === "admin" && (
-          <ul className="pl-6">
-            <li className="hover:bg-orange-500">
-              <Link to="/admin/register">부관리자 등록</Link>
-            </li>
-            <li className="hover:bg-orange-500">
-              <Link to="/admin/permissions">부관리자 권한관리</Link>
-            </li>
-            <li className="hover:bg-orange-500">
-              <Link to="/admin/password">로그삭제 비밀번호 설정</Link>
-            </li>
-            <li className="hover:bg-orange-500">
-              <Link to="/admin/group">회원그룹삭제 비밀번호 설정</Link>
-            </li>
-          </ul>
-        )}
-      </li>
-    </ul>
-  );
-
-  // 사용자 관리 메뉴 렌더링
-  const renderUserManagementMenu = () => (
-    <ul className="space-y-2">
-      <li>
-        <button
-          className="w-full px-4 py-2 hover:bg-orange-600 transition-colors duration-300 text-left flex justify-between"
-          onClick={() => toggleDropdown("user")}
-        >
-          사용자 관리
-          <span>{openDropdown === "user" ? "▲" : "▼"}</span>
-        </button>
-        {openDropdown === "user" && (
-          <ul className="pl-6">
-            <li className="hover:bg-orange-500">
-              <Link to="/user-management/list">사용자 목록</Link>
-            </li>
-            <li className="hover:bg-orange-500">
-              <Link to="/user-management/roles">권한 관리</Link>
-            </li>
-          </ul>
-        )}
-      </li>
-    </ul>
-  );
-
-  // 설정 메뉴 렌더링
-  const renderSettingsMenu = () => (
-    <ul className="space-y-2">
-      <li>
-        <Link
-          to="/settings/general"
-          className="hover:bg-orange-600 block px-4 py-2"
-        >
-          일반 설정
-        </Link>
-      </li>
-      <li>
-        <Link
-          to="/settings/advanced"
-          className="hover:bg-orange-600 block px-4 py-2"
-        >
-          고급 설정
-        </Link>
-      </li>
-    </ul>
-  );
 
   return (
     <aside className="w-64 bg-orange-500 text-white min-h-screen shadow-md">
-      <nav>
-        {renderMallManagementMenu()}
-        {renderAdminManagementMenu()}
-        {renderUserManagementMenu()}
-        {renderSettingsMenu()}
+      <nav className="p-4">
+        {menuData.map((menu) => (
+          <div key={menu.key} className="mb-4">
+            <button
+              onClick={() => toggleDropdown(menu.key)}
+              className="w-full text-left px-4 py-2 hover:bg-orange-600 flex justify-between items-center"
+            >
+              {menu.title}
+              <span>{openDropdown === menu.key ? "▲" : "▼"}</span>
+            </button>
+            {openDropdown === menu.key && (
+              <ul className="pl-6 mt-2">
+                {menu.items.map((item) => (
+                  <li key={item.path} className="hover:bg-orange-500 rounded">
+                    <Link to={item.path} className="block px-4 py-1">
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        ))}
       </nav>
     </aside>
   );
-}
+};
 
 export default Sidebar;

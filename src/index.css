@@ -3,4 +3,45 @@
 @tailwind utilities;
 
 
- 
+/* 기본 스타일 (모바일) */
+.container {
+  margin: 0 auto;
+  padding: 1rem;
+  text-align: center;
+}
+
+.header {
+  background-color: #ff9800;
+  color: white;
+  padding: 1rem;
+}
+
+.content {
+  margin: 1rem 0;
+}
+
+.footer {
+  background-color: #333;
+  color: white;
+  padding: 1rem;
+}
+
+/* 태블릿 이상 */
+@media (min-width: 768px) {
+  .container {
+    max-width: 700px;
+  }
+  .header {
+    font-size: 1.5rem;
+  }
+}
+
+/* 데스크탑 이상 */
+@media (min-width: 1024px) {
+  .container {
+    max-width: 960px;
+  }
+  .header {
+    font-size: 2rem;
+  }
+}
