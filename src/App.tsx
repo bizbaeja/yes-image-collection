@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import MainPage from "../src/pages/MainPage";
-import Login from "../src/components/common/Login";
+import Login from "./components/common/Login";
 import PrivateRoute from "./routes/PrivateRoutes";
 import AdminMain from "../src-main/AdminMain";
 

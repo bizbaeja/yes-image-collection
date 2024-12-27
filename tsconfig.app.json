@@ -22,5 +22,5 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["src"]
+  "include": ["src", "src-main/component/common/AdminLayout.tsx", "src-main/component/common/Footer.tsx", "src-main/component/common/Header.tsx", "src/components/common/Login.tsx", "src-main/component/common/SideBar.tsx"]
 }
