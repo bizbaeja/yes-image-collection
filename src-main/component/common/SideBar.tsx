@@ -13,28 +13,26 @@ const menuData = [
     key: "admin",
     items: [
       { name: "부운영자 등록", path: "/admin/sub-admin-register" },
-      { name: "부관리자 등록", path: "/admin/register" },
       { name: "부관리자 권한관리", path: "/admin/sub-admin-authority-management" },
-      { name: "로그삭제 비밀번호 설정", path: "/admin/password" },
-      { name: "회원그룹삭제 비밀번호 설정", path: "/admin/group" },
+
     ],
   },
-  {
-    title: "사용자 관리",
-    key: "user",
-    items: [
-      { name: "사용자 목록", path: "/user-management/list" },
-      { name: "권한 관리", path: "/user-management/roles" },
-    ],
-  },
-  {
-    title: "설정",
-    key: "settings",
-    items: [
-      { name: "일반 설정", path: "/settings/general" },
-      { name: "고급 설정", path: "/settings/advanced" },
-    ],
-  },
+  // {
+  //   title: "사용자 관리",
+  //   key: "user",
+  //   items: [
+  //     { name: "사용자 목록", path: "/user-management/list" },
+  //     { name: "권한 관리", path: "/user-management/roles" },
+  //   ],
+  // },
+  // {
+  //   title: "설정",
+  //   key: "settings",
+  //   items: [
+  //     { name: "일반 설정", path: "/settings/general" },
+  //     { name: "고급 설정", path: "/settings/advanced" },
+  //   ],
+  // },
 ];
 
 const Sidebar: React.FC = () => {
@@ -45,7 +43,7 @@ const Sidebar: React.FC = () => {
   };
 
   return (
-    <aside className="w-64 bg-orange-500 text-white min-h-screen shadow-md">
+    <aside className="w-64 bg-blue-900 text-white min-h-screen shadow-md">
       <nav className="p-4">
         {menuData.map((menu) => (
           <div key={menu.key} className="mb-4">

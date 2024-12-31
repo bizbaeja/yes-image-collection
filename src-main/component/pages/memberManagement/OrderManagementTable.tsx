@@ -1,4 +1,4 @@
-import React from 'react';
+
 
 function OrderManagementTable() {
   // 테이블 데이터 (사진 속 데이터 전체 포함)

@@ -1,4 +1,4 @@
-import React from 'react';
+
 
 function SettlementManagementTable() {
   // 두 번째 사진에 있는 테이블 데이터
