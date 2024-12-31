@@ -7,6 +7,8 @@ import MemberManagement from "./component/pages/memberManagement/MemberManagemen
 import DashBoard from "./DashBoard";
 import UserInfoTable from "./component/pages/memberManagement/UserInfoTable"; // UserInfoTable 추가
 import SubAdminRegister from "./component/pages/memberManagement/SubAdminRegister";
+import SubAdminAutorityManagement from "./component/pages/memberManagement/SubAdminAuthorityManagement";
+import AuthoritySettings from "./component/pages/memberManagement/AuthoritySettings";
 const AdminApp: React.FC = () => {
   return (
     <AdminLayout>
@@ -15,6 +17,12 @@ const AdminApp: React.FC = () => {
         <Route path="/" element={<Navigate to="/admin/dashboard" replace />} />
         <Route path="/admin/dashboard" element={<DashBoard />} />
         <Route path="/sub-admin-register" element={<SubAdminRegister />} />
+        <Route path="/sub-admin-authority-management" element={<SubAdminAutorityManagement />}/>
+          {/* 부운영자 권한 설정 - ID로 이동 */}
+        <Route
+            path="/sub-admin-authority-management/:adminId"
+            element={<AuthoritySettings />}
+        />
         <Route path="/order-management" element={<OrderManagement />} />
         <Route path="/product-management" element={<ProductManagement />} />
         <Route path="/member-management" element={<MemberManagement />} />

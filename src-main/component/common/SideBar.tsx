@@ -14,7 +14,7 @@ const menuData = [
     items: [
       { name: "부운영자 등록", path: "/admin/sub-admin-register" },
       { name: "부관리자 등록", path: "/admin/register" },
-      { name: "부관리자 권한관리", path: "/admin/permissions" },
+      { name: "부관리자 권한관리", path: "/admin/sub-admin-authority-management" },
       { name: "로그삭제 비밀번호 설정", path: "/admin/password" },
       { name: "회원그룹삭제 비밀번호 설정", path: "/admin/group" },
     ],
