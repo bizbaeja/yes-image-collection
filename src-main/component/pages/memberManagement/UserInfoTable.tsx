@@ -56,7 +56,7 @@ const UserInfoTable: React.FC = () => {
   return (
     <div className="p-6 bg-white border rounded shadow-md">
       <div className="flex items-center justify-between mb-4">
-        <h2 className="text-lg font-semibold">가입일</h2>
+    
         <div className="flex items-center space-x-2">
           <input
             type="date"

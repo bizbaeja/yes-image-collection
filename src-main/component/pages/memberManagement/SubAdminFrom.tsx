@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import DaumPostcode from "react-daum-postcode";
 
-const SubAdminRegister: React.FC = () => {
+const SubAdminForm: React.FC = () => {
   const [formData, setFormData] = useState({
     userId: "",
     name: "",
@@ -335,12 +335,11 @@ const SubAdminRegister: React.FC = () => {
       {/* 우편번호 검색 모달 */}
       {isPostcodeModalOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-          <div className="bg-white rounded-lg shadow-lg p-6 relative">
-            {/* 닫기 버튼 */}
+          <div className="bg-white rounded-lg shadow-lg p-6">
             <button
               type="button"
+              className="absolute top-2 right-2 text-gray-500"
               onClick={() => setPostcodeModalOpen(false)}
-              className="absolute top-2 right-2 text-gray-600 hover:text-gray-800"
             >
               닫기
             </button>
@@ -352,4 +351,4 @@ const SubAdminRegister: React.FC = () => {
   );
 };
 
-export default SubAdminRegister;
+export default SubAdminForm;

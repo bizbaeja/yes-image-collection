@@ -6,21 +6,21 @@ import ProductManagement from "./component/pages/productManagement/ProductManage
 import MemberManagement from "./component/pages/memberManagement/MemberManagement";
 import DashBoard from "./DashBoard";
 import UserInfoTable from "./component/pages/memberManagement/UserInfoTable"; // UserInfoTable 추가
-
+import SubAdminRegister from "./component/pages/memberManagement/SubAdminRegister";
 const AdminApp: React.FC = () => {
   return (
     <AdminLayout>
-           <Routes>
-      {/* 기본 경로 설정 */}
-      <Route path="/" element={<Navigate to="/admin/dashboard" replace />} />
-      <Route path="/dashboard" element={<DashBoard />} />
-      <Route path="/order-management" element={<OrderManagement />} />
-      <Route path="/product-management" element={<ProductManagement />} />
-      <Route path="/member-management" element={<MemberManagement />} />
-      <Route path="/user-management/list" element={<UserInfoTable />} /> {/* UserInfoTable 경로 추가 */}
-    </Routes>
+      <Routes>
+        {/* 기본 경로 설정 */}
+        <Route path="/" element={<Navigate to="/admin/dashboard" replace />} />
+        <Route path="/admin/dashboard" element={<DashBoard />} />
+        <Route path="/sub-admin-register" element={<SubAdminRegister />} />
+        <Route path="/order-management" element={<OrderManagement />} />
+        <Route path="/product-management" element={<ProductManagement />} />
+        <Route path="/member-management" element={<MemberManagement />} />
+        <Route path="/user-management/list" element={<UserInfoTable />} /> {/* UserInfoTable 경로 추가 */}
+      </Routes>
     </AdminLayout>
- 
   );
 };
 

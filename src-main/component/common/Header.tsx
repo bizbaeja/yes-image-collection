@@ -5,7 +5,7 @@ const Header: React.FC = () => (
   <header className="bg-gray-800 text-white py-4 shadow-md">
     <div className="container mx-auto flex justify-between items-center">
       <Link to="/" className="text-lg font-bold">
-        NICE SHOP
+        YES IMAGE COLLECTION
       </Link>
       <div className="flex space-x-6">
         <span>부관리자님이 사용중입니다.</span>
