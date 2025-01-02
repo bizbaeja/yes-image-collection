@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import MainPage from "../src/pages/MainPage";
 import Login from "./auth/Login"; // Ensure this path is correct and the file exists
 import PrivateRoute from "./auth/PrivateRoute";
-import AdminApp from "../src-main/AdminApp"
-
+import AdminApp from "../src/src-main/AdminApp"
+import AdminLayout from "../src/src-main/component/common/AdminLayout"
 
 const App: React.FC = () => {
   const isAuthenticated = !!localStorage.getItem("isAuthenticated");
@@ -17,7 +17,10 @@ const App: React.FC = () => {
           path="/admin/*"
           element={
             <PrivateRoute isAuthenticated={isAuthenticated} isAdminRoute>
+              <AdminLayout>
               <AdminApp />
+              </AdminLayout>
+   
             </PrivateRoute>
           }
         />
