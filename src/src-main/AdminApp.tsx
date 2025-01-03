@@ -22,7 +22,22 @@ import ReturnManagement from "./component/pages/orderManagement/return/ReturnMan
 import RefundManagement from "./component/pages/orderManagement/return/RefundManagement";
 import CardCancelInquiry from "./component/pages/orderManagement/return/CardCancelInquiry";
 import AdminRefundManagement from "./component/pages/orderManagement/return/AdminRefundManagement";
-
+import ProductList from "./component/pages/productManagement/listup/ProductList";
+import AdminRegister from "./component/pages/productManagement/register/AdminRegister";
+import VendorRegister from "./component/pages/productManagement/register/VendorRegister";
+import BulkRegister from "./component/pages/productManagement/register/BulkRegister";
+import CategoryManagement from "./component/pages/productManagement/category/CategoryManagement";
+import RegionalRegister from "./component/pages/productManagement/register/RegionalRegister";
+import SpecialCategory from "./component/pages/productManagement/category/SpecialCategory";
+import MonthlyCategory from "./component/pages/productManagement/category/MonthlyCategory";
+import BrandCategory from "./component/pages/productManagement/category/BrandCategory";
+import BizShopCategory from "./component/pages/productManagement/category/BizShopCategory";
+import ExhibitionCategory from "./component/pages/productManagement/category/ExhibitionCategory";
+import FlowerDeliveryCategory from "./component/pages/productManagement/category/FlowerDeliveryCategory";
+import NiceShopCategory from "./component/pages/productManagement/category/NiceShopCategory";
+import ProductApprovalManagement from "./component/pages/productManagement/category/ProductApprovalManagement";
+import MainProductApprovalManagement from "./component/pages/productManagement/category/MainProductApprovalManagement";
+import ModifyProductRegistrationForm from "./component/pages/productManagement/register/ModifyProductRegistrationForm";
 
 const AdminApp: React.FC = () => {
   return (
@@ -69,7 +84,29 @@ const AdminApp: React.FC = () => {
             />
           </Route>
         </Route>
-        <Route path="/product-management" element={<ProductManagement />} />
+        <Route path="product-management">
+          <Route index element={<ProductList />} />
+          <Route path="product-list" element={<ProductList />} />
+          {/* <Route path="admin-products" element={<AdminProduct />} />
+          <Route path="vendor-products" element={<VendorProducts />} /> */}
+          <Route path="admin-register" element={<AdminRegister />} />
+          <Route path="vendor-register" element={<VendorRegister />} />
+          <Route path="bulk-register" element={<BulkRegister title={""} />} />
+          <Route  path="edit/:id" element={<ModifyProductRegistrationForm title={""}/>}/>
+          <Route path="category" element={<CategoryManagement />} />
+          <Route path="regional-register" element={<RegionalRegister />} />
+          <Route path="special-category" element={<SpecialCategory />} />
+          <Route path="monthly-category" element={<MonthlyCategory />} />
+          <Route path="brand-category" element={<BrandCategory />} />
+          <Route path="bizshop-category" element={<BizShopCategory />} />
+          <Route path="exhibition-category" element={<ExhibitionCategory />} />
+          <Route path="flower-category" element={<FlowerDeliveryCategory />} />
+          <Route path="nice-shop-category" element={<NiceShopCategory />} />
+          <Route path="approval-management">
+            <Route index element={<ProductApprovalManagement />} />
+            <Route path="main" element={<MainProductApprovalManagement />} />
+          </Route>
+        </Route>
         <Route path="/member-management" element={<MemberManagement />} />
         <Route path="/user-management/list" element={<UserInfoTable />} /> {/* UserInfoTable 경로 추가 */}
       </Routes>

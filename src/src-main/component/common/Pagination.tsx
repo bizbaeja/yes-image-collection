@@ -21,7 +21,7 @@ const Pagination: React.FC<PaginationProps> = ({
   const handleLast = () => setCurrentPage(totalPages);
   const handlePrev = () => setCurrentPage(currentPage > 1 ? currentPage - 1 : 1);
   const handleNext = () =>
-      setCurrentPage(currentPage < totalPages ? currentPage + 1 : totalPages);
+    setCurrentPage(currentPage < totalPages ? currentPage + 1 : totalPages);
 
   const generatePageButtons = () => {
     const pageButtons: JSX.Element[] = [];
@@ -32,7 +32,7 @@ const Pagination: React.FC<PaginationProps> = ({
     // Adjust start page if the total number of pages is less than maxPageButtons
     if (
       endPage - startPage + 1 < maxPageButtons &&
-      totalPages >= maxPageButtons 
+      totalPages >= maxPageButtons
     ) {
       startPage = Math.max(1, endPage - maxPageButtons + 1);
     }
@@ -42,7 +42,7 @@ const Pagination: React.FC<PaginationProps> = ({
         <button
           key={i}
           onClick={() => setCurrentPage(i)}
-          className={`border px-4 py-2 mx-1 ${
+          className={`border px-2 py-1 sm:px-4 sm:py-2 mx-1 text-sm sm:text-base ${
             currentPage === i ? "bg-gray-300 font-bold" : "hover:bg-gray-100"
           }`}
         >
@@ -54,12 +54,12 @@ const Pagination: React.FC<PaginationProps> = ({
   };
 
   return (
-    <div className="flex justify-center mt-8 items-center space-x-2">
+    <div className="flex justify-center mt-8 items-center space-x-1 sm:space-x-2">
       {showFirstLast && (
         <button
           onClick={handleFirst}
           disabled={currentPage === 1}
-          className={`border px-4 py-2 mx-1 ${
+          className={`border px-2 py-1 sm:px-4 sm:py-2 mx-1 text-sm sm:text-base ${
             currentPage === 1
               ? "bg-gray-200 cursor-not-allowed"
               : "bg-gray-200 hover:bg-gray-300"
@@ -73,7 +73,7 @@ const Pagination: React.FC<PaginationProps> = ({
         <button
           onClick={handlePrev}
           disabled={currentPage === 1}
-          className={`border px-4 py-2 mx-1 ${
+          className={`border px-2 py-1 sm:px-4 sm:py-2 mx-1 text-sm sm:text-base ${
             currentPage === 1
               ? "bg-gray-200 cursor-not-allowed"
               : "bg-gray-200 hover:bg-gray-300"
@@ -89,7 +89,7 @@ const Pagination: React.FC<PaginationProps> = ({
         <button
           onClick={handleNext}
           disabled={currentPage === totalPages}
-          className={`border px-4 py-2 mx-1 ${
+          className={`border px-2 py-1 sm:px-4 sm:py-2 mx-1 text-sm sm:text-base ${
             currentPage === totalPages
               ? "bg-gray-200 cursor-not-allowed"
               : "bg-gray-200 hover:bg-gray-300"
@@ -103,7 +103,7 @@ const Pagination: React.FC<PaginationProps> = ({
         <button
           onClick={handleLast}
           disabled={currentPage === totalPages}
-          className={`border px-4 py-2 mx-1 ${
+          className={`border px-2 py-1 sm:px-4 sm:py-2 mx-1 text-sm sm:text-base ${
             currentPage === totalPages
               ? "bg-gray-200 cursor-not-allowed"
               : "bg-gray-200 hover:bg-gray-300"

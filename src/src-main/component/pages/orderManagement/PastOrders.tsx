@@ -15,10 +15,12 @@ function PastOrders() {
     receiverName: "",
     trackingNumber: "",
   });
-  const [selectedFile, setSelectedFile] = useState(null);
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
-  const handleFileChange = (event) => {
-    setSelectedFile(event.target.files[0]);
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.files && event.target.files[0]) {
+      setSelectedFile(event.target.files[0]);
+    }
   };
 
   const handleUpload = () => {
@@ -34,7 +36,7 @@ function PastOrders() {
   const [endDate, setEndDate] = useState("");
 
   // 입력 변경 핸들러
-  const handleChange = (e) => {
+  const handleChange = (e: { target: { name: any; value: any; }; }) => {
     const { name, value } = e.target;
     setOrderDetails((prevDetails) => ({
       ...prevDetails,

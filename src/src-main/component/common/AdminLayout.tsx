@@ -31,10 +31,10 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       </div>
 
       {/* Main Content: Sidebar와 AdminApp */}
-      <div className="flex flex-1">
+      <div className="flex flex-1 flex-col md:flex-row">
         {/* Sidebar */}
         <div
-          className={`fixed md:static top-0 left-0 bg-blue-900  text-white shadow-md z-40 transition-transform duration-300 ${
+          className={`fixed md:static top-0 left-0 bg-blue-900 text-white shadow-md z-40 transition-transform duration-300 ${
             isSidebarOpen ? "translate-x-0" : "-translate-x-full"
           } md:translate-x-0 w-64 min-h-screen`}
         >
@@ -42,7 +42,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         </div>
 
         {/* AdminApp */}
-        <div className="flex-grow p-6 bg-gray-100">
+        <div className="flex-grow p-4 sm:p-6 bg-gray-100">
           <AdminApp />
         </div>
       </div>

@@ -7,7 +7,7 @@ const OrderManagementMenu = () => {
       <DropdownMenu title="주문 관리">
         <li><Link to="/admin/order-management">전체주문조회</Link></li>
         {/* <li><Link to="/admin/order-management/past-orders">과거주문조회</Link></li> */}
-        <li><Link to="/admin/order-management/pending-payments">입금대기관리</Link></li>
+        <li><Link to="/admin/order-management/pending-payments">입금전 관리</Link></li>
         <li><Link to="/admin/order-management/waiting-shipment">배송 대기 관리</Link></li>
         {/* <li><Link to="/admin/order-management/in-transit">배송 중 관리</Link></li>
         <li><Link to="/admin/order-management/completed-delivery">배송 완료 조회</Link></li> */}
